@@ -48,10 +48,10 @@ class UserController {
 
     async check(req, res, next) {
         try {
-            const {email} = req.query;
+            const { email } = req.query;
             const candidate = await UserModel.findOne({email});
 
-            return res.json({status: candidate ? 1 : 0});
+            return res.json({status: candidate ? true : false});
         } catch (e) {
             next(e)
         }
