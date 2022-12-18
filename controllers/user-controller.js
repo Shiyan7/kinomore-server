@@ -1,4 +1,5 @@
 import userService from '../service/user-service.js';
+import UserModel from '../models/user-model.js';
 
 class UserController {
     async registration(req, res, next) {
@@ -42,6 +43,17 @@ class UserController {
             return res.json(userData);
         } catch (e) {
             next(e);
+        }
+    }
+
+    async check(req, res, next) {
+        try {
+            const {email} = req.query;
+            const candidate = await UserModel.findOne({email});
+
+            return res.json({status: candidate ? 1 : 0});
+        } catch (e) {
+            next(e)
         }
     }
 }

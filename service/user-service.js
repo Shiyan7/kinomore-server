@@ -14,7 +14,7 @@ class UserService {
 
         const user = await UserModel.create({firstName, lastName, email, password: hashPassword})
 
-        const userDto = new UserDto(user); // id, email
+        const userDto = new UserDto(user);
         const tokens = tokenService.generateTokens({...userDto});
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
@@ -57,11 +57,6 @@ class UserService {
 
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
         return {...tokens, user: userDto}
-    }
-
-    async getAllUsers() {
-        const users = await UserModel.find();
-        return users;
     }
 }
 
