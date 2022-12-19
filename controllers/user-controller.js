@@ -51,7 +51,7 @@ class UserController {
             const { email } = req.query;
             const candidate = await UserModel.findOne({email});
 
-            return res.json({status: Boolean(candidate)});
+            return res.json({status: !Boolean(candidate)});
         } catch (e) {
             next(e)
         }
