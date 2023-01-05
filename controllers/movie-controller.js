@@ -1,3 +1,5 @@
+import path from "path"
+const __dirname = path.resolve();
 class MovieController {
   async getHeroMovies(req, res, next) {
     try {
