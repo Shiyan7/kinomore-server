@@ -45,7 +45,7 @@ class MovieController {
 
       return res.json(movies);
     } catch (e) {
-      next(e);
+      console.error(e)
     }
   }
 
@@ -54,7 +54,7 @@ class MovieController {
       const id = req.params.id;
       res.sendFile(`${__dirname}/assets/images/${id}.jpg`);
     } catch (e) {
-      next(e);
+      console.error(e)
     }
   }
 }
