@@ -9,7 +9,7 @@ class MovieController {
           rating: "8.3",
           title: "Уэнсдэй",
           genre: "Фэнтези",
-          image: `${process.env.API_URL}/api/images/1`
+          image: `${process.env.API_URL}/images/1`
         },
         {
           id: 915196,
@@ -17,7 +17,7 @@ class MovieController {
           rating: "8.4",
           title: "Очень странные дела",
           genre: "Ужасы",
-          image: `${process.env.API_URL}/api/images/2`
+          image: `${process.env.API_URL}/images/2`
         },
         {
           id: 1199773,
@@ -25,7 +25,7 @@ class MovieController {
           rating: "6.8",
           title: "Чёрная Пантера: Ваканда навеки",
           genre: "Триллеры",
-          image: `${process.env.API_URL}/api/images/3`
+          image: `${process.env.API_URL}/images/3`
         },
         {
           id: 1115098,
@@ -33,7 +33,7 @@ class MovieController {
           rating: "5.7",
           title: "Мир Юрского периода: Господство",
           genre: "Триллеры",
-          image: `${process.env.API_URL}/api/images/4`
+          image: `${process.env.API_URL}/images/4`
         },
         {
           id: 505898,
@@ -41,7 +41,7 @@ class MovieController {
           rating: "8.4",
           title: "Аватар: Путь воды",
           genre: "Фантастика",
-          image: `${process.env.API_URL}/api/images/5`
+          image: `${process.env.API_URL}/images/5`
         },
       ];
 
