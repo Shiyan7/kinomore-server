@@ -9,7 +9,7 @@ const movies = [{
     title: "Уэнсдэй",
     genre: "Фэнтези",
     image: `${process.env.API_URL}/images/1`,
-    trailer: `${process.env.API_URL}/videos/1`
+    trailer: `${process.env.API_URL}/trailers/1`
   },
   {
     id: 915196,
@@ -18,7 +18,7 @@ const movies = [{
     title: "Очень странные дела",
     genre: "Ужасы",
     image: `${process.env.API_URL}/images/2`,
-    trailer: `${process.env.API_URL}/videos/1`
+    trailer: `${process.env.API_URL}/trailers/1`
   },
   {
     id: 1199773,
@@ -27,7 +27,7 @@ const movies = [{
     title: "Чёрная Пантера: Ваканда навеки",
     genre: "Триллеры",
     image: `${process.env.API_URL}/images/3`,
-    trailer: `${process.env.API_URL}/videos/1`
+    trailer: `${process.env.API_URL}/trailers/1`
   },
   {
     id: 1115098,
@@ -36,7 +36,7 @@ const movies = [{
     title: "Мир Юрского периода: Господство",
     genre: "Триллеры",
     image: `${process.env.API_URL}/images/4`,
-    trailer: `${process.env.API_URL}/videos/1`
+    trailer: `${process.env.API_URL}/trailers/1`
   },
   {
     id: 505898,
@@ -45,7 +45,7 @@ const movies = [{
     title: "Аватар: Путь воды",
     genre: "Фантастика",
     image: `${process.env.API_URL}/images/5`,
-    trailer: `${process.env.API_URL}/videos/1`
+    trailer: `${process.env.API_URL}/trailers/1`
   },
 ];
 class MovieController {
