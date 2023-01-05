@@ -10,5 +10,6 @@ router.post('/logout', userController.logout);
 router.get('/refresh', userController.refresh);
 router.get('/check', userController.check);
 router.get('/hero', movieController.getHeroMovies);
+router.get('/images/:id', movieController.getImage)
 
 export default router
