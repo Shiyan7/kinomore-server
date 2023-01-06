@@ -77,7 +77,7 @@ class MovieController {
         const chunksize = end - start + 1;
         const file = fs.createReadStream(filePath, { start, end });
         const head = {
-          'Content-Range': bytes `${start}-${end}/${fileSize}`,
+          'Content-Range': `bytes ${start}-${end}/${fileSize}`,
           'Accept-Ranges': 'bytes',
           'Content-Length': chunksize,
           'Content-Type': 'video/mp4',
