@@ -39,7 +39,7 @@ const movies = [{
     title: "Аватар: Путь воды",
     genre: "Фантастика",
     scale: "1.35",
-    image: `${process.env.API_URL}/images/4,`,
+    image: `${process.env.API_URL}/images/4`,
     trailer: `${process.env.API_URL}/trailers/4`
   },
 ];
