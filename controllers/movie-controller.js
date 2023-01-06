@@ -8,6 +8,7 @@ const movies = [{
     rating: "8.3",
     title: "Уэнсдэй",
     genre: "Фэнтези",
+    scale: "1.05",
     image: `${process.env.API_URL}/images/1`,
     trailer: `${process.env.API_URL}/trailers/1`
   },
@@ -17,6 +18,7 @@ const movies = [{
     rating: "6.8",
     title: "Чёрная Пантера: Ваканда навеки",
     genre: "Триллеры",
+    scale: "1.35",
     image: `${process.env.API_URL}/images/2`,
     trailer: `${process.env.API_URL}/trailers/2`
   },
@@ -26,6 +28,7 @@ const movies = [{
     rating: "5.7",
     title: "Мир Юрского периода: Господство",
     genre: "Триллеры",
+    scale: "1.15",
     image: `${process.env.API_URL}/images/3`,
     trailer: `${process.env.API_URL}/trailers/3`
   },
@@ -35,7 +38,8 @@ const movies = [{
     rating: "8.4",
     title: "Аватар: Путь воды",
     genre: "Фантастика",
-    image: `${process.env.API_URL}/images/4`,
+    scale: "1.35",
+    image: `${process.env.API_URL}/images/4,`,
     trailer: `${process.env.API_URL}/trailers/4`
   },
 ];
@@ -73,7 +77,7 @@ class MovieController {
         const chunksize = end - start + 1;
         const file = fs.createReadStream(filePath, { start, end });
         const head = {
-          'Content-Range': `bytes ${start}-${end}/${fileSize}`,
+          'Content-Range': bytes `${start}-${end}/${fileSize}`,
           'Accept-Ranges': 'bytes',
           'Content-Length': chunksize,
           'Content-Type': 'video/mp4',
