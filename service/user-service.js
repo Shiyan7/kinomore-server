@@ -1,20 +1,18 @@
 import UserModel from '../models/user-model.js';
 import bcrypt from 'bcrypt';
 import tokenService from './token-service.js';
-import mailService from './mail-service.js';
 import UserDto from '../dtos/user-dto.js';
 import ApiError from '../exceptions/api-error.js';
 
 class UserService {
-    async registration(firstName, lastName, email, password) {
+    async registration(email, password) {
         const candidate = await UserModel.findOne({email})
         if (candidate) {
             throw ApiError.BadRequest(`Пользователь с почтовым адресом ${email} уже существует`)
         }
         const hashPassword = await bcrypt.hash(password, 3);
 
-        const user = await UserModel.create({firstName, lastName, email, password: hashPassword})
-        await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`);
+        const user = await UserModel.create({email, password: hashPassword})
 
         const userDto = new UserDto(user);
         const tokens = tokenService.generateTokens({...userDto});
