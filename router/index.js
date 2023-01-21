@@ -9,8 +9,8 @@ router.post('/login', userController.login);
 router.post('/logout', userController.logout);
 router.post('/google', userController.google);
 router.get('/refresh', userController.refresh);
-
 router.get('/check', userController.check);
+
 router.get('/hero', movieController.getHeroMovies);
 router.get('/images/:id', movieController.getImage);
 router.get('/trailers/:id', movieController.getTrailer)

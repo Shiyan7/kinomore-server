@@ -61,11 +61,45 @@ class UserService {
     }
 
     async google(token) {
+        
         const { data } = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
             headers: { Authorization: `Bearer ${token}` },
         });
+
+        const email = data.email;
+        const password = data.sub;
         
-        return data;
+        const candidate = await UserModel.findOne({email: data.email})
+
+        if(candidate) {
+            const user = await UserModel.findOne({email})
+            if (!user) {
+                throw ApiError.BadRequest('Пользователь с таким email не найден')
+            }
+            const isPassEquals = await bcrypt.compare(password, user.password);
+            if (!isPassEquals) {
+                throw ApiError.BadRequest('Неверный пароль');
+            }
+            const userDto = new UserDto(user);
+            const tokens = tokenService.generateTokens({...userDto});
+
+            await tokenService.saveToken(userDto.id, tokens.refreshToken);
+            return {...tokens, user: userDto}
+        } else {
+            const candidate = await UserModel.findOne({email})
+            if (candidate) {
+                throw ApiError.BadRequest(`Пользователь с почтовым адресом ${email} уже существует`)
+            }
+            const hashPassword = await bcrypt.hash(password, 3);
+
+            const user = await UserModel.create({email, password: hashPassword})
+
+            const userDto = new UserDto(user);
+            const tokens = tokenService.generateTokens({...userDto});
+            await tokenService.saveToken(userDto.id, tokens.refreshToken);
+
+            return {...tokens, user: userDto}
+        }
     }
 }
 
