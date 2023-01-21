@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import tokenService from './token-service.js';
 import UserDto from '../dtos/user-dto.js';
 import ApiError from '../exceptions/api-error.js';
+import axios from 'axios';
 
 class UserService {
     async registration(email, password) {
@@ -57,6 +58,14 @@ class UserService {
 
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
         return {...tokens, user: userDto}
+    }
+
+    async google(token) {
+        const { data } = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
+            headers: { Authorization: `Bearer ${token}` },
+        });
+        
+        return data;
     }
 }
 
