@@ -3,8 +3,10 @@ import tokenModel from '../models/token-model.js';
 
 class TokenService {
     generateTokens(payload) {
+        /* 15 сек */
         const accessToken = jwt.sign(payload, process.env.JWT_ACCESS_SECRET, {expiresIn: '15s'})
-        const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH_SECRET, {expiresIn: '30d'})
+        /* 14 Дней */
+        const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH_SECRET, {expiresIn: '14d'})
         return {
             accessToken,
             refreshToken
