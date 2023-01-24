@@ -20,8 +20,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
     credentials: true,
-    origin: corsWhitelist,
-    // origin: '*'
+    // origin: corsWhitelist,
+    origin: '*'
 }));
 app.use('/api', router);
 app.use(errorMiddleware);
