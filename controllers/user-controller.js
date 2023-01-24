@@ -56,17 +56,6 @@ class UserController {
             next(e)
         }
     }
-
-    async google(req, res, next) {
-        try {
-            const {token} = req.body;
-            const userData = await userService.google(token);
-            res.cookie('refreshToken', userData.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true})
-            return res.json(userData);
-        } catch (e) {
-            next(e);
-        }
-    }
 }
 
 export default new UserController();
