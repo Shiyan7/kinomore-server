@@ -16,13 +16,16 @@ const corsWhitelist = [
     "http://localhost:3000"
 ]
 
-app.use(cookieParser());
-app.use(express.json({ extended: true }))
-app.use(express.urlencoded());
-app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3003'],
+const corsOptions = {
+    exposedHeaders: '*',
+    origin: 'http://localhost:3000',
+    methods: 'GET, PUT, POST',
     credentials: true,
-}));
+  }
+
+app.use(express.json());
+app.use(cookieParser());
+app.use(cors(corsOptions))
 app.use('/api', router);
 app.use(errorMiddleware);
 
