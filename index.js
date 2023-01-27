@@ -13,7 +13,6 @@ const PORT = process.env.PORT || 5000;
 
 const corsWhitelist = [
     process.env.CLIENT_URL,
-    "https://kinomore2.netlify.app",
     "http://localhost:3000",
 ]
 

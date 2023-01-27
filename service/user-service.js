@@ -3,7 +3,6 @@ import bcrypt from 'bcrypt';
 import tokenService from './token-service.js';
 import UserDto from '../dtos/user-dto.js';
 import ApiError from '../exceptions/api-error.js';
-import axios from 'axios';
 
 class UserService {
     async registration(email, password) {
