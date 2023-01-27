@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 5000;
 
 const corsWhitelist = [
     process.env.CLIENT_URL,
+    "http://192.168.1.146:3000",
     "http://localhost:3000",
 ]
 
